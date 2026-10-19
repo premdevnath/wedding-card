@@ -1,0 +1,281 @@
+/*
+ * Focused readability, photo rendering, and responsive overrides.
+ * Original theme, colours, scenes, animation system, and layout concepts are preserved.
+ */
+:root {
+  --default-font-family: "Jost", Arial, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Jost", Arial, sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Make small labels legible without replacing the existing type styles. */
+.eyebrow {
+  font-size: clamp(10px, 0.78vw, 13px) !important;
+  line-height: 1.5 !important;
+}
+
+.opening-title .opening-date {
+  font-size: clamp(14px, 0.98vw, 18px) !important;
+  line-height: 1.5 !important;
+}
+
+.invitation-words > p,
+.event-copy > p,
+.event-copy .event-short,
+.portrait-intro > p,
+.venue-copy > p,
+.blessing-copy > p {
+  font-size: clamp(14px, 1vw, 18px) !important;
+  line-height: 1.6 !important;
+}
+
+.event-copy > .eyebrow,
+.events-label,
+.countdown-heading > .eyebrow,
+.venue-copy > .eyebrow,
+.blessing-copy > .eyebrow,
+.portrait-intro > .eyebrow {
+  font-size: clamp(10px, 0.76vw, 13px) !important;
+  line-height: 1.5 !important;
+}
+
+.event-copy .gold-button,
+.venue-copy .gold-button,
+.blessing-copy .gold-button,
+.final-save {
+  font-size: clamp(12px, 0.82vw, 15px) !important;
+}
+
+.countdown small {
+  font-size: clamp(11px, 0.78vw, 14px) !important;
+}
+
+.final-words small {
+  font-size: clamp(10px, 0.72vw, 12px) !important;
+  line-height: 1.5 !important;
+}
+
+.tap-hint,
+.final-hint {
+  font-size: clamp(12px, 0.88vw, 14px) !important;
+  line-height: 1.5 !important;
+}
+
+/* The replacement portraits are high-resolution images. Avoid stretching them. */
+.event-portrait img,
+.gold-portrait img,
+.memory img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  image-rendering: auto;
+  backface-visibility: hidden;
+}
+
+/* Tailor crop position to each photograph so faces stay visible in the frames. */
+.event-invitation:first-child .event-portrait img {
+  object-position: 50% 28%;
+}
+
+.event-invitation:nth-child(2) .event-portrait img {
+  object-position: 50% 45%;
+}
+
+.gold-portrait img {
+  object-position: 50% 24%;
+}
+
+.memory-0 img { object-position: 50% 28%; }
+.memory-1 img { object-position: 50% 32%; }
+.memory-2 img { object-position: 50% 24%; }
+.memory-3 img { object-position: 50% 30%; }
+.memory-4 img { object-position: 50% 28%; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+
+  .eyebrow,
+  .event-copy > .eyebrow,
+  .events-label,
+  .countdown-heading > .eyebrow,
+  .venue-copy > .eyebrow,
+  .blessing-copy > .eyebrow,
+  .portrait-intro > .eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .opening-title .opening-date {
+    font-size: 14px !important;
+  }
+
+  .invitation-words > p,
+  .event-copy > p,
+  .event-copy .event-short,
+  .portrait-intro > p,
+  .venue-copy > p,
+  .blessing-copy > p {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .invitation-words h2 {
+    font-size: clamp(36px, 8.5vw, 53px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .invitation-words h3 {
+    font-size: clamp(29px, 7vw, 42px) !important;
+    line-height: 1.1 !important;
+  }
+
+  .event-copy h2 {
+    font-size: clamp(24px, 5.8vw, 36px) !important;
+    line-height: 1.05 !important;
+  }
+
+  .event-copy .gold-button,
+  .venue-copy .gold-button,
+  .blessing-copy .gold-button,
+  .final-save {
+    font-size: 12px !important;
+    min-height: 36px;
+  }
+
+  .countdown small {
+    font-size: 11px !important;
+  }
+
+  .final-words small {
+    font-size: 10px !important;
+  }
+
+  .tap-hint,
+  .final-hint {
+    font-size: 12px !important;
+  }
+
+  .event-portrait img,
+  .gold-portrait img,
+  .memory img {
+    object-position: center 28%;
+  }
+
+  .memory-1 img { object-position: center 33%; }
+  .memory-2 img { object-position: center 24%; }
+}
+
+@media (max-width: 420px) {
+  .event-copy h2 {
+    font-size: clamp(22px, 5.7vw, 27px) !important;
+  }
+
+  .event-copy > p,
+  .event-copy .event-short {
+    font-size: 13px !important;
+  }
+
+  .countdown {
+    gap: 7px !important;
+  }
+
+  .countdown > div {
+    width: min(21vw, 62px) !important;
+  }
+
+  .countdown span {
+    padding: 10px 2px !important;
+    font-size: clamp(24px, 7vw, 31px) !important;
+  }
+
+  .countdown small {
+    font-size: 10px !important;
+  }
+}
+
+/* Gentle zoom-out framing for the supplied portrait photos.
+   Keep the original artwork intact; show more of each portrait instead of cropping faces/bodies. */
+.event-portrait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9efda;
+  overflow: hidden;
+}
+
+.event-portrait img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #f9efda;
+  transform: none;
+}
+
+/* Disable the existing hover zoom so the images do not suddenly crop tighter. */
+.event-portrait:hover img {
+  transform: none !important;
+}
+
+/* Main couple portrait: use a portrait-shaped frame matching the source photos. */
+.gold-portrait {
+  width: clamp(150px, 20vw, 320px) !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3;
+  box-sizing: border-box;
+  padding: 6px !important;
+  left: 50% !important;
+  margin-left: clamp(-160px, -10vw, -75px);
+}
+
+.gold-portrait img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #f9efda;
+}
+
+/* Memory collage: smaller, taller cards reduce cropping and reveal more of each photo. */
+.memory {
+  width: clamp(112px, 14vw, 220px) !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3;
+  box-sizing: border-box;
+  padding: 6px !important;
+  background: #fff6e5;
+}
+
+.memory img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #f9efda;
+}
+
+@media (max-width: 760px) {
+  .gold-portrait {
+    width: clamp(138px, 42vw, 205px) !important;
+    margin-left: clamp(-103px, -21vw, -69px);
+    padding: 5px !important;
+  }
+
+  .memory {
+    width: clamp(100px, 27vw, 150px) !important;
+    padding: 4px !important;
+  }
+
+  .event-portrait img,
+  .gold-portrait img,
+  .memory img {
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}

@@ -5510,30 +5510,6 @@
     initial-value: 0
 }
 
-@font-face {
-    font-family: Cormorant;
-    src: url(/fonts/cormorant-regular.ttf)format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap
-}
-
-@font-face {
-    font-family: Cormorant;
-    src: url(/fonts/cormorant-italic.ttf)format("truetype");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap
-}
-
-@font-face {
-    font-family: Jost;
-    src: url(/fonts/jost-regular.ttf)format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap
-}
-
 :root {
     --paper: #f5e9cf;
     --wine: #55313c;
@@ -5591,7 +5567,7 @@ figure {
 h1,
 h2,
 h3 {
-    font-family: Cormorant, Georgia, serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
     font-weight: 400
 }
 
@@ -6326,7 +6302,7 @@ em {
     border: 1px solid #d2b782;
     border-radius: 5px;
     padding: 15px 5px;
-    font: 400 39px/1.15 Cormorant, Georgia, serif;
+    font: 400 39px/1.15 "Cormorant Garamond", Georgia, serif;
     display: block
 }
 
@@ -6434,7 +6410,7 @@ em {
 
 .final-words>p {
     margin: 16px 0 12px;
-    font: 400 33px/1.2 Cormorant, Georgia, serif
+    font: 400 33px/1.2 "Cormorant Garamond", Georgia, serif
 }
 
 .final-words>p em {
@@ -6469,7 +6445,7 @@ em {
     border: 1px solid #a27e432b;
     border-radius: 3px;
     padding: 6px 10px;
-    font: 400 29px/.9 Cormorant, Georgia, serif;
+    font: 400 29px/.9 "Cormorant Garamond", Georgia, serif;
     position: fixed;
     top: 18px;
     left: 23px
@@ -6502,7 +6478,7 @@ em {
 
 .loader-monogram {
     letter-spacing: -6px;
-    font: 400 94px/.9 Cormorant, Georgia, serif
+    font: 400 94px/.9 "Cormorant Garamond", Georgia, serif
 }
 
 .loader-monogram em {
@@ -6541,7 +6517,7 @@ em {
 
 .dialog-title {
     color: var(--wine);
-    font: 400 48px/1.1 Cormorant, Georgia, serif !important
+    font: 400 48px/1.1 "Cormorant Garamond", Georgia, serif !important
 }
 
 .dialog-description {
@@ -7710,7 +7686,7 @@ em {
 
 .tap-hint b {
     color: var(--wine);
-    font-family: Cormorant, Georgia, serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 17px;
     font-weight: 400
 }
@@ -8048,152 +8024,4 @@ em {
     50% {
         opacity: 0
     }
-}
-
-/* Loader Styles */
-.film-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: #f5e9cf;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    color: #55313c;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
-}
-
-.film-loader[aria-hidden="true"] {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.loader-monogram {
-    font-family: Cormorant, Georgia, serif;
-    font-size: clamp(48px, 6vw, 72px);
-    color: #997d47;
-    letter-spacing: 0.1em;
-}
-
-.loader-monogram em {
-    font-style: italic;
-    font-size: 0.6em;
-    margin: 0 4px;
-}
-
-/* Modal styles */
-.custom-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-}
-
-.custom-modal.active {
-    display: flex;
-}
-
-.custom-modal-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(40, 20, 25, 0.7);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.custom-modal-dialog {
-    position: relative;
-    z-index: 10001;
-    background: #fdfaf3;
-    color: #55313c;
-    max-width: 520px;
-    width: 90%;
-    padding: 36px 32px;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px #d4b16c;
-    text-align: center;
-    animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes modalEnter {
-    from {
-        opacity: 0;
-        transform: scale(0.95) translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.custom-modal-close {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    font-size: 28px;
-    line-height: 1;
-    color: #886248;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    transition: color 0.2s;
-}
-
-.custom-modal-close:hover {
-    color: #55313c;
-}
-
-.custom-modal-eyebrow {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: #997d47;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.custom-modal-title {
-    font-family: Cormorant, Georgia, serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: #55313c;
-    margin: 0 0 14px 0;
-}
-
-.custom-modal-desc {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #6a4a42;
-    margin-bottom: 16px;
-}
-
-.custom-modal-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #d4b16c, transparent);
-    margin: 16px 0;
-}
-
-.custom-modal-date,
-.custom-modal-venue {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #55313c;
-    margin: 6px 0;
-}
-
-.custom-modal-actions {
-    margin-top: 24px;
-}
-
-.custom-modal-ok {
-    padding: 10px 28px;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
 }
